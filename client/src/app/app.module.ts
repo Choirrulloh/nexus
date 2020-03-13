@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material.module';
 import { HomeModule } from './modules/home/home.module';
 import { ClickupModule } from './modules/clickup/clickup.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ClickupModule } from './modules/clickup/clickup.module';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    CoreModule,
     HomeModule,
     ClickupModule
   ],

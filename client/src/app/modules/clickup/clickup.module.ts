@@ -6,7 +6,6 @@ import { ClickupRoutingModule } from './clickup-routing.module';
 import { MaterialModule } from '../material.module';
 
 
-
 @NgModule({
   declarations: [ClickupComponent, TimerComponent],
   imports: [
