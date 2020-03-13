@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "postinstall": "npm run postinstall:server && npm run postinstall:client",
-    "postinstall:server": "cd server && npm run install",
-    "postinstall:client": "cd client && npm run install"
+    "postinstall:server": "cd server && npm install",
+    "postinstall:client": "cd client && npm install"
   },
   "author": "Steven Liebregt <stevenliebregt@outlook.com>",
   "license": "WTFPL"
