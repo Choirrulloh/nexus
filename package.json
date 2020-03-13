@@ -1,11 +1,11 @@
 {
   "name": "nexus",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npm run postinstall:server && npm run postinstall:client",
+    "postinstall:server": "cd server && npm run install",
+    "postinstall:client": "cd client && npm run install"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Steven Liebregt <stevenliebregt@outlook.com>",
+  "license": "WTFPL"
 }
