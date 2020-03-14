@@ -13,25 +13,25 @@
     </mdc-top-app-bar-section>
   </mdc-top-app-bar-row>
 </mdc-top-app-bar>
+<!-- Drawers -->
+<mdc-drawer drawer="modal" #drawerStart>
+  <mdc-drawer-header>
+    <h3 mdcDrawerTitle>{{ drawerManager.start.title }}</h3>
+  </mdc-drawer-header>
+  <mdc-drawer-content>
+    <ng-container #drawerStartContainer></ng-container>
+  </mdc-drawer-content>
+</mdc-drawer>
+<mdc-drawer drawer="modal" dir="rtl" #drawerEnd>
+  <mdc-drawer-header>
+    <h3 mdcDrawerTitle>{{ drawerManager.end.title }}</h3>
+  </mdc-drawer-header>
+  <mdc-drawer-content dir="rtl">
+    <ng-container #drawerEndContainer></ng-container>
+  </mdc-drawer-content>
+</mdc-drawer>
 <!-- Content -->
-<div #content class="mdc-top-app-bar--fixed-adjust">
-  <!-- Drawers -->
-  <mdc-drawer drawer="modal" #drawerStart>
-    <mdc-drawer-header>
-      <h3 mdcDrawerTitle>{{ drawerManager.start.title }}</h3>
-    </mdc-drawer-header>
-    <mdc-drawer-content>
-      <ng-container #drawerStartContainer></ng-container>
-    </mdc-drawer-content>
-  </mdc-drawer>
-  <mdc-drawer drawer="modal" dir="rtl" #drawerEnd>
-    <mdc-drawer-header>
-      <h3 mdcDrawerTitle>{{ drawerManager.end.title }}</h3>
-    </mdc-drawer-header>
-    <mdc-drawer-content dir="rtl">
-      <ng-container #drawerEndContainer></ng-container>
-    </mdc-drawer-content>
-  </mdc-drawer>
+<div #content mdcTopAppBarFixedAdjust mdcDrawerAppContent>
   <!-- Router content -->
   <router-outlet></router-outlet>
 </div>

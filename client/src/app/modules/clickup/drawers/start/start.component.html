@@ -1,3 +1,15 @@
-<ng-container>
-
+<ng-container *ngFor="let folder of folders$ | async">
+  <mdc-list-group subheader="{{ folder.name }}">
+    <mdc-list>
+      <mdc-list-item>1</mdc-list-item>
+      <mdc-list-item>2</mdc-list-item>
+      <mdc-list-item>3</mdc-list-item>
+      <mdc-list-item>4</mdc-list-item>
+      <mdc-list-item>5</mdc-list-item>
+    </mdc-list>
+  </mdc-list-group>
 </ng-container>
+
+<!--<mdc-list *ngFor="let folder of folders$ | async">-->
+<!--  <mdc-list-item>{{ folder.name }}</mdc-list-item>-->
+<!--</mdc-list>-->
