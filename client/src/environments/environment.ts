@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  clickupTeamId: 2492485,
+  clickupSpaceId: 2570524,
+  clickupToken: 'pk_4530748_HPUL6F30H20405I13S8EQ0HAIQS2IZFA', // TODO: This should not be in GIT
 };
 
 /*

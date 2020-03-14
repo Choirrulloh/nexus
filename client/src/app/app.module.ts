@@ -7,6 +7,7 @@ import { MaterialModule } from './modules/material.module';
 import { HomeModule } from './modules/home/home.module';
 import { ClickupModule } from './modules/clickup/clickup.module';
 import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    HttpClientModule,
     CoreModule,
     HomeModule,
     ClickupModule

@@ -1,0 +1,8 @@
+{
+  "/api/v2": {
+    "target": "https://api.clickup.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

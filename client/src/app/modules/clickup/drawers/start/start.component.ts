@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
+import { FolderService } from '../../services/folder.service';
 
 @Component({
   selector: 'app-start',
@@ -7,7 +8,11 @@ import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manage
   styleUrls: ['./start.component.scss']
 })
 export class StartComponent {
-  constructor(private drawerStartManager: DrawerStartManager) {
-    drawerStartManager.title = 'Clickup';
+  constructor(private drawerStartManager: DrawerStartManager, private folderService: FolderService) {
+    drawerStartManager.title = 'ClickUp';
+    drawerStartManager.toggle();
+
+    folderService.getFolders()
+      .subscribe(item => console.log(item));
   }
 }

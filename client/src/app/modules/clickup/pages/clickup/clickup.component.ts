@@ -10,7 +10,6 @@ import { StartComponent } from '../../drawers/start/start.component';
 export class ClickupComponent {
   constructor(private drawerManager: DrawerManager) {
     drawerManager.start.loadComponent(StartComponent);
-
     drawerManager.end.available = false;
   }
 }
