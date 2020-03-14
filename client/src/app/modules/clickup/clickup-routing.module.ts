@@ -6,17 +6,19 @@ import { TimerComponent } from './pages/timer/timer.component';
 
 const routes: Routes = [
   {
-    path: 'clickup',
-    component: ClickupComponent
-  },
-  {
-    path: 'clickup/timer',
+    path: 'timer',
     component: TimerComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot([
+    {
+      path: 'clickup',
+      component: ClickupComponent,
+      children: routes,
+    }
+  ])],
   exports: [RouterModule]
 })
 export class ClickupRoutingModule { }

@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
 
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss']
 })
-export class StartComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class StartComponent {
+  constructor(private drawerStartManager: DrawerStartManager) {
+    drawerStartManager.title = 'Clickup';
   }
-
 }

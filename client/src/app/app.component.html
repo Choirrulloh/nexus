@@ -2,7 +2,7 @@
 <mdc-top-app-bar [scrollTarget]="content">
   <mdc-top-app-bar-row>
     <mdc-top-app-bar-section align="start" title="Nexus">
-      <button mdcTopAppBarNavIcon (click)="drawerStartTemplate.open = !drawerStartTemplate.open">
+      <button mdcTopAppBarNavIcon *ngIf="drawerManager.start.available" (click)="drawerManager.start.toggle()">
         <mdc-icon>menu</mdc-icon>
       </button>
     </mdc-top-app-bar-section>
@@ -15,32 +15,22 @@
 </mdc-top-app-bar>
 <!-- Content -->
 <div #content class="mdc-top-app-bar--fixed-adjust">
-  <!-- Drawer -->
-  <mdc-drawer drawer="modal" #drawerStartTemplate>
+  <!-- Drawers -->
+  <mdc-drawer drawer="modal" #drawerStart>
     <mdc-drawer-header>
-      <h3 mdcDrawerTitle *ngIf="drawer.title !== ''">{{ drawer.title }}</h3>
-      <h6 mdcDrawerSubtitle *ngIf="drawer.subtitle !== ''">{{ drawer.subtitle }}</h6>
+      <h3 mdcDrawerTitle>{{ drawerManager.start.title }}</h3>
     </mdc-drawer-header>
-<!--    <mdc-drawer-content *ngTemplateOutlet="drawer.content">-->
-<!--      <mdc-list>-->
-<!--        <mdc-list-item *ngFor="let item of [-->
-<!--          {-->
-<!--            activated: true,-->
-<!--            label: 'Test 1'-->
-<!--          },-->
-<!--          {-->
-<!--            activated: false,-->
-<!--            label: 'Test 2'-->
-<!--          },-->
-<!--          {-->
-<!--            activated: false,-->
-<!--            label: 'Test 3'-->
-<!--          }-->
-<!--        ]" [activated]="item.activated">-->
-<!--          <mdc-icon mdcListItemGraphic>home</mdc-icon>{{item.label}}-->
-<!--        </mdc-list-item>-->
-<!--      </mdc-list>-->
-<!--    </mdc-drawer-content>-->
+    <mdc-drawer-content>
+      <ng-container #drawerStartContainer></ng-container>
+    </mdc-drawer-content>
+  </mdc-drawer>
+  <mdc-drawer drawer="modal" dir="rtl" #drawerEnd>
+    <mdc-drawer-header>
+      <h3 mdcDrawerTitle>{{ drawerManager.end.title }}</h3>
+    </mdc-drawer-header>
+    <mdc-drawer-content dir="rtl">
+      <ng-container #drawerEndContainer></ng-container>
+    </mdc-drawer-content>
   </mdc-drawer>
   <!-- Router content -->
   <router-outlet></router-outlet>

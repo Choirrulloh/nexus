@@ -6,7 +6,6 @@ import { ClickupRoutingModule } from './clickup-routing.module';
 import { MaterialModule } from '../material.module';
 import { StartComponent } from './drawers/start/start.component';
 
-
 @NgModule({
   declarations: [ClickupComponent, TimerComponent, StartComponent],
   imports: [
@@ -15,4 +14,4 @@ import { StartComponent } from './drawers/start/start.component';
     MaterialModule
   ],
 })
-export class ClickupModule { }
+export class ClickupModule {}
