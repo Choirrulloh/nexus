@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Folder } from '../models/folder.model';
+import { List } from '../models/list.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FolderService {
+export class ListService {
   headers = new HttpHeaders({ // TODO: Move somewhere higher
     authorization: environment.clickupToken,
   });
@@ -21,12 +21,12 @@ export class FolderService {
 
   }
 
-  getFolders(): Observable<Folder[]> {
-    return this.http.get<FoldersResponse>(`/api/v2/space/${environment.clickupSpaceId}/folder`, this.options)
-      .pipe(map(response => response.folders.map(folder => new Folder(folder.id, folder.name))));
+  getLists(folderId: number): Observable<List[]> {
+    return this.http.get<ListsResponse>(`/api/v2/folder/${folderId}/list`, this.options)
+      .pipe(map(response => response.lists.map(list => new List(list.id, list.name))));
   }
 }
 
-interface FoldersResponse {
-  folders: Folder[];
+interface ListsResponse {
+  lists: List[];
 }

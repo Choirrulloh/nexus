@@ -6,7 +6,7 @@ import {
   MdcIconModule,
   MdcMenuModule,
   MdcMenuSurfaceModule,
-  MdcSelectModule,
+  MdcSelectModule, MdcSnackbarModule,
   MdcTopAppBarModule
 } from '@angular-mdc/web';
 
@@ -19,7 +19,8 @@ import {
     MdcTopAppBarModule,
     MdcIconModule,
     MdcIconButtonModule,
-    MdcDrawerModule
+    MdcDrawerModule,
+    MdcSnackbarModule
   ]
 })
 export class MaterialModule {}

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
 import { FolderService } from '../../services/folder.service';
-import { Observable } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { Folder } from '../../models/folder.model';
+import { ListService } from '../../services/list.service';
+import { flatMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-start',
@@ -10,11 +12,26 @@ import { Folder } from '../../models/folder.model';
   styleUrls: ['./start.component.scss']
 })
 export class StartComponent {
-  folders$: Observable<Folder[]>;
+  folders: Folder[];
 
-  constructor(private drawerStartManager: DrawerStartManager, private folderService: FolderService) {
-    drawerStartManager.toggle();
+  constructor(
+    private drawerStartManager: DrawerStartManager,
+    private folderService: FolderService,
+    private listService: ListService
+  ) {
+    this.folderService.getFolders()
+      .pipe(
+        tap(folders => this.folders = folders),
+        flatMap(folders => {
+          const observables = [];
 
-    this.folders$ = this.folderService.getFolders();
+          folders.forEach(folder => {
+            folder.lists$ = this.listService.getLists(folder.id);
+            observables.push(folder.lists$);
+          });
+
+          return forkJoin(observables);
+        })
+      ).subscribe();
   }
 }
