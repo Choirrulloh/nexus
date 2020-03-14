@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +6,13 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  // @ViewChild('drawer') drawer;
+  drawer = {
+    title: '',
+    subtitle: '',
+  };
 
-  title = 'client';
-
-  // toggleDrawer() {
-  //   this.drawer.open = !this.drawer.open;
-  // }
+  constructor() {
+    this.drawer.title = 'Lijpe shit';
+    this.drawer.subtitle = 'Cool man';
+  }
 }
