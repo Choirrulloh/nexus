@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
 import { FolderService } from '../../services/folder.service';
-import { forkJoin } from 'rxjs';
+import { forkJoin, from, Observable, of } from 'rxjs';
 import { Folder } from '../../models/folder.model';
 import { ListService } from '../../services/list.service';
-import { flatMap, tap } from 'rxjs/operators';
+import { concatMap, delay, flatMap, map, mergeAll, mergeMap, tap, toArray } from 'rxjs/operators';
 
 @Component({
   selector: 'app-start',
@@ -12,26 +12,39 @@ import { flatMap, tap } from 'rxjs/operators';
   styleUrls: ['./start.component.scss']
 })
 export class StartComponent {
-  folders: Folder[];
+  folders$: Observable<Folder[]>;
 
   constructor(
     private drawerStartManager: DrawerStartManager,
     private folderService: FolderService,
     private listService: ListService
   ) {
-    this.folderService.getFolders()
+    this.folders$ = this.folderService.getFolders()
       .pipe(
-        tap(folders => this.folders = folders),
-        flatMap(folders => {
-          const observables = [];
+        mergeMap(folders =>
+          from(folders).pipe(
+            mergeMap(
+              folder => {
+                const lists$ = this.listService.getLists(folder.id);
+                return of({ ...folder, lists$ });
+              },
+            ),
+            toArray(),
+            // map(folder => ({ ...folders, folder})),
+          )
+        ),
+      );
 
-          folders.forEach(folder => {
-            folder.lists$ = this.listService.getLists(folder.id);
-            observables.push(folder.lists$);
-          });
-
-          return forkJoin(observables);
-        })
-      ).subscribe();
+    // this.folders$ = this.folderService.getFolders().pipe(
+    //   mergeMap(folders => {
+    //     from(folders).pipe(
+    //       mergeMap(folder => {
+    //
+    //       })
+    //     );
+    //   })
+    // );
+    //
+    // this.folders$.subscribe(response => console.log(JSON.stringify(response, null, 2)));
   }
 }

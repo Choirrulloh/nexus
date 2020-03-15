@@ -1,4 +1,6 @@
 export class List {
+  type = 'list';
+
   id: number;
   name: string;
 

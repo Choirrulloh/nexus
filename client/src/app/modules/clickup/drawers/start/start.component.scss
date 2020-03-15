@@ -1,0 +1,10 @@
+.nested-list {
+  &__section-header {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 8px;
+    cursor: pointer;
+    outline: none;
+  }
+}

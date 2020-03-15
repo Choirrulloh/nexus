@@ -1,9 +1,17 @@
 <mdc-drawer-content>
-  <ng-container *ngFor="let folder of folders">
-    <mdc-list-group subheader="{{ folder.name }}">
-      <mdc-list *ngFor="let list of folder.lists$ | async">
-        <mdc-list-item>{{ list.name }}</mdc-list-item>
+  <div class="nested-list" *ngFor="let folder of folders$ | async">
+    <details class="nested-list__section" #details>
+      <summary class="nested-list__section-header mdc-list-item">
+        <mdc-icon mdcListItemGraphic>folder</mdc-icon>
+        {{ folder.name }}
+        <mdc-icon mdcListItemMeta>{{ details.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mdc-icon>
+      </summary>
+      <mdc-list class="nested-list__section-content" *ngFor="let list of folder.lists$ | async">
+        <mdc-list-item>
+          <mdc-icon mdcListItemGraphic>list</mdc-icon>
+          {{ list.name }}
+        </mdc-list-item>
       </mdc-list>
-    </mdc-list-group>
-  </ng-container>
+    </details>
+  </div>
 </mdc-drawer-content>
