@@ -1,17 +1,20 @@
-<mdc-drawer-content>
-  <div class="nested-list" *ngFor="let folder of folders$ | async">
-    <details class="nested-list__section" #details>
-      <summary class="nested-list__section-header mdc-list-item">
-        <mdc-icon mdcListItemGraphic>folder</mdc-icon>
-        {{ folder.name }}
-        <mdc-icon mdcListItemMeta>{{ details.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mdc-icon>
-      </summary>
-      <mdc-list class="nested-list__section-content" *ngFor="let list of folder.lists$ | async">
-        <mdc-list-item>
-          <mdc-icon mdcListItemGraphic>list</mdc-icon>
-          {{ list.name }}
-        </mdc-list-item>
-      </mdc-list>
-    </details>
-  </div>
-</mdc-drawer-content>
+<ng-template #template>
+  <mdc-drawer-header title="ClickUp"></mdc-drawer-header>
+  <mdc-drawer-content>
+    <div class="nested-list" *ngFor="let folder of folders$ | async">
+      <details class="nested-list__section" #details>
+        <summary class="nested-list__section-header mdc-list-item">
+          <mdc-icon mdcListItemGraphic>folder</mdc-icon>
+          {{ folder.name }}
+          <mdc-icon mdcListItemMeta>{{ details.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mdc-icon>
+        </summary>
+        <mdc-list class="nested-list__section-content" *ngFor="let list of folder.lists$ | async">
+          <mdc-list-item>
+            <mdc-icon mdcListItemGraphic>list</mdc-icon>
+            {{ list.name }}
+          </mdc-list-item>
+        </mdc-list>
+      </details>
+    </div>
+  </mdc-drawer-content>
+</ng-template>

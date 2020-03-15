@@ -1,31 +1,38 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
 import { FolderService } from '../../services/folder.service';
-import { forkJoin, from, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Folder } from '../../models/folder.model';
 import { ListService } from '../../services/list.service';
-import { concatMap, delay, flatMap, map, mergeAll, mergeMap, tap, toArray } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
-  styleUrls: ['./start.component.scss']
+  styleUrls: ['./start.component.scss'],
 })
-export class StartComponent {
+export class StartComponent implements AfterViewInit {
+  @ViewChild('template') template;
+
   folders$: Observable<Folder[]>;
 
   constructor(
-    private drawerStartManager: DrawerStartManager,
     private folderService: FolderService,
-    private listService: ListService
+    private listService: ListService,
+    private viewContainerRef: ViewContainerRef
   ) {
-    this.folders$ = this.folderService.getFolders()
-      .pipe(
-        map(folders =>
-          folders.map(folder => ({
-            ...folder,
-            lists$: this.listService.getLists(folder.id)
-          })))
-      );
+    // TODO: Create mock service
+    // this.folders$ = this.folderService.getFolders()
+    //   .pipe(
+    //     map(folders =>
+    //       folders.map(folder => ({
+    //         ...folder,
+    //         lists$: this.listService.getLists(folder.id)
+    //       })))
+    //   );
+  }
+
+  ngAfterViewInit() {
+    this.viewContainerRef.createEmbeddedView(this.template); // TODO: How the hell does this work?
   }
 }

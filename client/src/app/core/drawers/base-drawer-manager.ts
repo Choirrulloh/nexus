@@ -11,8 +11,6 @@ export abstract class BaseDrawerManager {
   // If the drawer is not available, the toggle should not be shown
   available = false;
 
-  title = '';
-
   container: ViewContainerRef | null;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
