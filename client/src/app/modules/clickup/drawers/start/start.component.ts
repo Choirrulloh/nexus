@@ -21,30 +21,11 @@ export class StartComponent {
   ) {
     this.folders$ = this.folderService.getFolders()
       .pipe(
-        mergeMap(folders =>
-          from(folders).pipe(
-            mergeMap(
-              folder => {
-                const lists$ = this.listService.getLists(folder.id);
-                return of({ ...folder, lists$ });
-              },
-            ),
-            toArray(),
-            // map(folder => ({ ...folders, folder})),
-          )
-        ),
+        map(folders =>
+          folders.map(folder => ({
+            ...folder,
+            lists$: this.listService.getLists(folder.id)
+          })))
       );
-
-    // this.folders$ = this.folderService.getFolders().pipe(
-    //   mergeMap(folders => {
-    //     from(folders).pipe(
-    //       mergeMap(folder => {
-    //
-    //       })
-    //     );
-    //   })
-    // );
-    //
-    // this.folders$.subscribe(response => console.log(JSON.stringify(response, null, 2)));
   }
 }
