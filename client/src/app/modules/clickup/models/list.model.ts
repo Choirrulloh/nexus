@@ -1,10 +1,13 @@
-export class List {
-  type = 'list';
+import { Observable } from 'rxjs';
+import { Task } from './task.model';
 
-  id: number;
+export class List {
+  readonly folderId: number;
+  readonly id: number;
   name: string;
 
-  constructor(id: number, name: string) {
+  constructor(folderId: number, id: number, name: string) {
+    this.folderId = folderId;
     this.id = id;
     this.name = name;
   }

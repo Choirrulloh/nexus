@@ -1,15 +1,17 @@
 <ng-template #template>
-  <mdc-drawer-header title="ClickUp"></mdc-drawer-header>
+  <mdc-drawer-header title="ClickUp" subtitle="Folders & Lists"></mdc-drawer-header>
   <mdc-drawer-content>
+    <!-- Folders -->
     <div class="nested-list" *ngFor="let folder of folders$ | async">
-      <details class="nested-list__section" #details>
+      <details class="nested-list__section" #details> <!-- TODO: Open if set in localstorage or something / localstorage with context?? -->
         <summary class="nested-list__section-header mdc-list-item">
           <mdc-icon mdcListItemGraphic>folder</mdc-icon>
           {{ folder.name }}
           <mdc-icon mdcListItemMeta>{{ details.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mdc-icon>
         </summary>
-        <mdc-list class="nested-list__section-content" *ngFor="let list of folder.lists$ | async">
-          <mdc-list-item>
+        <!-- Lists -->
+        <mdc-list class="nested-list__section-content">
+          <mdc-list-item *ngFor="let list of folder.lists$ | async" [routerLink]="['/clickup/lists', list.id]" routerLinkActive="mdc-list-item--activated">
             <mdc-icon mdcListItemGraphic>list</mdc-icon>
             {{ list.name }}
           </mdc-list-item>

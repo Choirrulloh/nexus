@@ -1,9 +1,9 @@
-import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
-import { FolderService } from '../../services/folder.service';
+import { FolderService } from '../../services/folder.mock-service';
 import { Observable } from 'rxjs';
 import { Folder } from '../../models/folder.model';
-import { ListService } from '../../services/list.service';
+import { ListService } from '../../services/list.mock-service';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
 })
-export class StartComponent implements AfterViewInit {
+export class StartComponent implements OnInit, AfterViewInit {
   @ViewChild('template') template;
 
   folders$: Observable<Folder[]>;
@@ -21,15 +21,18 @@ export class StartComponent implements AfterViewInit {
     private listService: ListService,
     private viewContainerRef: ViewContainerRef
   ) {
-    // TODO: Create mock service
-    // this.folders$ = this.folderService.getFolders()
-    //   .pipe(
-    //     map(folders =>
-    //       folders.map(folder => ({
-    //         ...folder,
-    //         lists$: this.listService.getLists(folder.id)
-    //       })))
-    //   );
+
+  }
+
+  ngOnInit() {
+    this.folders$ = this.folderService.getFolders()
+      .pipe(
+        map(folders =>
+          folders.map(folder => ({
+            ...folder,
+            lists$: this.listService.getLists(folder.id)
+          })))
+      );
   }
 
   ngAfterViewInit() {
