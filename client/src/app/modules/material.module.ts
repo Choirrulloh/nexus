@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import {
   MdcButtonModule,
+  MdcDialogModule,
   MdcDrawerModule,
+  MdcElevationModule,
+  MdcFabModule,
   MdcIconButtonModule,
   MdcIconModule,
   MdcMenuModule,
   MdcMenuSurfaceModule,
-  MdcSelectModule, MdcSnackbarModule,
-  MdcTopAppBarModule
+  MdcRippleModule,
+  MdcSelectModule,
+  MdcSnackbarModule,
+  MdcTopAppBarModule,
+  MdcTypographyModule
 } from '@angular-mdc/web';
 
 @NgModule({
@@ -20,7 +26,12 @@ import {
     MdcIconModule,
     MdcIconButtonModule,
     MdcDrawerModule,
-    MdcSnackbarModule
+    MdcSnackbarModule,
+    MdcDialogModule,
+    MdcFabModule,
+    MdcRippleModule,
+    MdcElevationModule,
+    MdcTypographyModule
   ]
 })
 export class MaterialModule {}

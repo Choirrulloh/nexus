@@ -1,0 +1,22 @@
+<mdc-dialog class="app-picker">
+  <button mdc-fab mini class="app-picker__close-button" (click)="closeDialog()">
+    <mdc-icon>close</mdc-icon>
+  </button>
+  <mdc-dialog-container>
+    <mdc-dialog-surface class="app-picker__surface">
+      <mdc-dialog-content class="app-picker__content">
+        <ng-container *ngFor="let app of apps">
+          <div
+            class="app-picker__app"
+            mdcButton
+            [ngClass]="{ 'app-picker__app--active' : location.isCurrentPathEqualTo(app.link) }"
+            (click)="openApp(app.link)"
+          >
+            <div class="icon">icon</div>
+            <div class="title">{{ app.name }}</div>
+          </div>
+        </ng-container>
+      </mdc-dialog-content>
+    </mdc-dialog-surface>
+  </mdc-dialog-container>
+</mdc-dialog>
