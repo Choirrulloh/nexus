@@ -8,12 +8,12 @@
         <ng-container *ngFor="let app of apps">
           <div
             class="app-picker__app"
-            mdcButton
+            mdcButton mdcRipple
+            [attachTo]="ripple" #ripple
             [ngClass]="{ 'app-picker__app--active' : location.isCurrentPathEqualTo(app.link) }"
             (click)="openApp(app.link)"
           >
-            <div class="icon">icon</div>
-            <div class="title">{{ app.name }}</div>
+            <img src="{{ app.image }}" alt="{{ app.name }}">
           </div>
         </ng-container>
       </mdc-dialog-content>

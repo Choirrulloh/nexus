@@ -26,9 +26,11 @@ export class AppPickerComponent {
     // new App('App', '/'),
   ];
 
-  activeAppLink: string | null;
-
-  constructor(public dialogRef: MdcDialogRef<AppPickerComponent>, private router: Router, public location: Location) { }
+  constructor(
+    public dialogRef: MdcDialogRef<AppPickerComponent>,
+    private router: Router,
+    public location: Location
+  ) { }
 
   openApp(link: string) {
     this.router.navigate([link])
@@ -41,7 +43,14 @@ export class AppPickerComponent {
 }
 
 class App {
-  constructor(public name: string, public link: string) {
-    // TODO: Image
+  name: string;
+  link: string;
+  image: string;
+
+  constructor(name: string, link: string);
+  constructor(name: string, link: string, image?: string) {
+    this.name = name;
+    this.link = link;
+    this.image = image || `assets/images/app-icons/${name}.png`.toLowerCase();
   }
 }
