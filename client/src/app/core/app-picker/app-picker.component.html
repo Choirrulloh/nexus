@@ -10,7 +10,7 @@
             class="app-picker__app"
             mdcButton mdcRipple
             [attachTo]="ripple" #ripple
-            [ngClass]="{ 'app-picker__app--active' : location.isCurrentPathEqualTo(app.link) }"
+            [ngClass]="{ 'app-picker__app--active' : isAppActive(location, app.link) }"
             (click)="openApp(app.link)"
           >
             <img src="{{ app.image }}" alt="{{ app.name }}">

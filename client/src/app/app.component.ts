@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/
 import { DrawerManager } from './core/drawers/drawer-manager';
 import { MdcDialog, MdcDrawer } from '@angular-mdc/web';
 import { AppPickerComponent } from './core/app-picker/app-picker.component';
+import { AppManagerService } from './core/services/app-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,11 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('drawerEnd') drawerEnd: MdcDrawer;
   @ViewChild('drawerEndContainer', { read: ViewContainerRef }) drawerEndContainer: ViewContainerRef;
 
-  constructor(public drawerManager: DrawerManager, private dialog: MdcDialog) { }
+  constructor(
+    public appManager: AppManagerService,
+    public drawerManager: DrawerManager,
+    private dialog: MdcDialog
+  ) { }
 
   ngAfterViewInit(): void {
     this.drawerManager.start.drawer = this.drawerStart;

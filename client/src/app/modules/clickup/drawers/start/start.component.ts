@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { FolderService } from '../../services/folder.service';
+import { FolderService } from '../../services/folder/folder.service';
 import { Observable } from 'rxjs';
 import { Folder } from '../../models/folder.model';
-import { ListService } from '../../services/list.service';
+import { ListService } from '../../services/list/list.service';
 import { map } from 'rxjs/operators';
 
 @Component({

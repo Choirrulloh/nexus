@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DrawerManager } from '../../../../core/drawers/drawer-manager';
 import { StartComponent } from '../../drawers/start/start.component';
+import { AppManagerService } from '../../../../core/services/app-manager.service';
 
 @Component({
   selector: 'app-clickup',
@@ -8,7 +9,11 @@ import { StartComponent } from '../../drawers/start/start.component';
   styleUrls: ['./clickup.component.scss']
 })
 export class ClickupComponent {
-  constructor(private drawerManager: DrawerManager) {
+  constructor(
+    private appManager: AppManagerService,
+    private drawerManager: DrawerManager
+  ) {
+    appManager.title = 'ClickUp';
     drawerManager.start.loadComponent(StartComponent);
     drawerManager.end.available = false;
   }

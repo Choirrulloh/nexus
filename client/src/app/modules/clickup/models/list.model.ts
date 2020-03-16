@@ -1,14 +1,17 @@
-import { Observable } from 'rxjs';
-import { Task } from './task.model';
-
 export class List {
-  readonly folderId: number;
-  readonly id: number;
+  folderId: number;
+  id: number;
   name: string;
+  taskCount: number;
 
-  constructor(folderId: number, id: number, name: string) {
-    this.folderId = folderId;
-    this.id = id;
-    this.name = name;
+  static from(data: any): List {
+    const list = new List();
+
+    list.folderId = data.folder.id;
+    list.id = data.id;
+    list.name = data.name;
+    list.taskCount = data.task_count;
+
+    return list;
   }
 }

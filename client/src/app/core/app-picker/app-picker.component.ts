@@ -12,7 +12,7 @@ export class AppPickerComponent {
     // Row 1
     new App('Home', '/'),
     new App('ClickUp', '/clickup'),
-    new App('Spotify', '/spotify'),
+    // new App('Spotify', '/spotify'),
     // new App('Spotify', '/spotify'),
     // Row 2
     // new App('App', '/'),
@@ -39,6 +39,12 @@ export class AppPickerComponent {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  isAppActive(location: Location, link: string): boolean {
+    const path = location.path() === '' ? '/' : `/${location.path().split('/')[1]}`;
+
+    return path === link;
   }
 }
 

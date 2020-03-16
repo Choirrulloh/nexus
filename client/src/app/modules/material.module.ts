@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {
   MdcButtonModule,
+  MdcCardModule,
   MdcDialogModule,
   MdcDrawerModule,
   MdcElevationModule,
@@ -31,7 +32,8 @@ import {
     MdcFabModule,
     MdcRippleModule,
     MdcElevationModule,
-    MdcTypographyModule
+    MdcTypographyModule,
+    MdcCardModule
   ]
 })
 export class MaterialModule {}

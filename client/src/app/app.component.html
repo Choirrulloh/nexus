@@ -1,7 +1,7 @@
 <!-- Top app bar -->
 <mdc-top-app-bar [scrollTarget]="content">
   <mdc-top-app-bar-row>
-    <mdc-top-app-bar-section align="start" title="Nexus">
+    <mdc-top-app-bar-section align="start" title="{{ appManager.title }}">
       <button mdcTopAppBarNavIcon *ngIf="drawerManager.start.available" (click)="drawerManager.start.toggle()">
         <mdc-icon>menu</mdc-icon>
       </button>
@@ -21,7 +21,7 @@
   <ng-container #drawerEndContainer></ng-container>
 </mdc-drawer>
 <!-- Content -->
-<div #content mdcTopAppBarFixedAdjust mdcDrawerAppContent>
+<div #content mdcTopAppBarFixedAdjust mdcDrawerAppContent class="grey lighten-2 app-content">
   <!-- Router content -->
   <router-outlet></router-outlet>
 </div>
