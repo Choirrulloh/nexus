@@ -23,7 +23,7 @@ export class TaskService {
 
   getTasks(listId: number): Observable<Task[]> {
     return this.http.get<TasksResponse>(`/api/v2/list/${listId}/task`, this.options)
-      .pipe(map(response => response.tasks.map(task => new Task(task.id, task.name))));
+      .pipe(map(response => response.tasks.map(task => new Task(listId, task.id, task.name))));
   }
 }
 

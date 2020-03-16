@@ -23,9 +23,6 @@ export class AppComponent implements AfterViewInit {
 
     this.drawerManager.end.drawer = this.drawerEnd;
     this.drawerManager.end.container = this.drawerEndContainer;
-
-    // DEBUG
-    this.showAppPicker();
   }
 
   showAppPicker() {

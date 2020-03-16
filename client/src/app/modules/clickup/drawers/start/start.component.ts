@@ -1,9 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
-import { FolderService } from '../../services/folder.mock-service';
+import { FolderService } from '../../services/folder.service';
 import { Observable } from 'rxjs';
 import { Folder } from '../../models/folder.model';
-import { ListService } from '../../services/list.mock-service';
+import { ListService } from '../../services/list.service';
 import { map } from 'rxjs/operators';
 
 @Component({
