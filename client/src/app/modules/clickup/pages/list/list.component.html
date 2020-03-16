@@ -1,1 +1,5 @@
-dit is lijst
+<mdc-list>
+  <mdc-list-item *ngFor="let task of tasks$ | async" [routerLink]="['/clickup/task']">
+    {{ task.name }}
+  </mdc-list-item>
+</mdc-list>

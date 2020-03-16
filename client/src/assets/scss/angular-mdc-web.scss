@@ -1,23 +1,23 @@
 // Material Web Components (https://trimox.github.io/angular-mdc-web)
-@use '@material/theme' with (
+@use '~@material/theme' with (
   $primary: #6200ee,
   $secondary: #faab1a,
   $background: #fff,
 );
 
 // Add all the required MDC module SCSS files here
-@use '@material/typography/mdc-typography';
-@use '@material/ripple/mdc-ripple';
-@use '@material/button/mdc-button';
-@use '@material/icon-button/mdc-icon-button';
-@use '@material/card/mdc-card';
-@use '@material/menu/mdc-menu';
-@use '@material/list/mdc-list';
-@use '@material/menu-surface/mdc-menu-surface';
-@use '@material/snackbar/mdc-snackbar';
-@use '@material/select/mdc-select';
-@use '@material/top-app-bar/mdc-top-app-bar';
-@use '@material/drawer/mdc-drawer';
-@use '@material/dialog/mdc-dialog';
-@use '@material/fab/mdc-fab';
-@use '@material/elevation/mdc-elevation';
+@use '~@material/typography/mdc-typography';
+@use '~@material/ripple/mdc-ripple';
+@use '~@material/button/mdc-button';
+@use '~@material/icon-button/mdc-icon-button';
+@use '~@material/card/mdc-card';
+@use '~@material/menu/mdc-menu';
+@use '~@material/list/mdc-list';
+@use '~@material/menu-surface/mdc-menu-surface';
+@use '~@material/snackbar/mdc-snackbar';
+@use '~@material/select/mdc-select';
+@use '~@material/top-app-bar/mdc-top-app-bar';
+@use '~@material/drawer/mdc-drawer';
+@use '~@material/dialog/mdc-dialog';
+@use '~@material/fab/mdc-fab';
+@use '~@material/elevation/mdc-elevation';
