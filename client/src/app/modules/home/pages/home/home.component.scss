@@ -1,0 +1,11 @@
+.home {
+  height: calc(100% - 16px);
+  display: flex;
+  padding: 8px;
+
+  mdc-card {
+    margin: 0;
+    overflow-y: auto;
+    flex: 1;
+  }
+}

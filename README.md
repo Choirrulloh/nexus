@@ -2,6 +2,8 @@
 
 My personal Raspberry Pi dashboard.
 
+**Yes I know I should not put styling inline, sorry**
+
 ## Todo
 
 Drawer is always there, but if not needed button is hidden
