@@ -1,19 +1,17 @@
-<mdc-card-actions>
-  <div mdcButton style="margin-left: 8px;">{{ folderName$ | async }} / {{ (list$ | async)?.name }}</div>
+<mdc-card-actions class="header">
+<!--  <div mdcButton style="margin-left: 8px;">{{ folderName$ | async }} / {{ (list$ | async)?.name }}</div>-->
   <mdc-card-action-icons>
-    <button mdcIconButton mdcCardAction="icon">
-      <mdc-icon>filter_list</mdc-icon>
-    </button>
+<!--    <button mdcIconButton mdcCardAction="icon">-->
+<!--      <mdc-icon>filter_list</mdc-icon>-->
+<!--    </button>-->
     <button mdcIconButton mdcCardAction="icon">
       <mdc-icon>add_circle_outline</mdc-icon>
     </button>
   </mdc-card-action-icons>
 </mdc-card-actions>
 
-<div class="divider"></div>
-
-<mdc-list>
-  <mdc-list-item *ngFor="let task of tasks$ | async" [routerLink]="['/clickup/task']">
-    {{ task.name }}
-  </mdc-list-item>
+<mdc-list class="tasks">
+<!--  <mdc-list-item *ngFor="let task of tasks$ | async" [routerLink]="['/clickup/task']">-->
+<!--    {{ task.name }}-->
+<!--  </mdc-list-item>-->
 </mdc-list>

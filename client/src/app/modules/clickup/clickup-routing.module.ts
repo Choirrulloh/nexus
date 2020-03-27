@@ -17,9 +17,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot([
+  imports: [RouterModule.forChild([
     {
-      path: 'clickup',
+      path: '',
       component: ClickupComponent,
       children: routes,
     }

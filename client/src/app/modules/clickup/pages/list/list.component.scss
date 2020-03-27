@@ -1,4 +1,18 @@
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .divider {
   border-bottom: 1px solid rgba(0,0,0,.12);
   margin: 0 12px;
+}
+
+.header {
+  background-color: darkseagreen;
+}
+
+.tasks {
+  background-color: cornflowerblue;
 }

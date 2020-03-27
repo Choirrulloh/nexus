@@ -1,11 +1,8 @@
-.clickup {
-  height: calc(100% - 16px);
+mdc-card {
+  flex: 1;
   display: flex;
-  padding: 8px;
-
-  mdc-card {
-    margin: 0;
-    overflow-y: auto;
-    flex: 1;
-  }
+  flex-direction: column;
+  height: 100%; // Should be 400px
+  overflow: auto;
+  background-color: hotpink;
 }
