@@ -13,5 +13,6 @@
     flex-direction: column;
     padding: 8px;
     height: calc(100vh - 64px - 16px);
+    min-height: 0;
   }
 }

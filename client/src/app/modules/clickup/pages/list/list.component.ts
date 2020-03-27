@@ -39,13 +39,13 @@ export class ListComponent implements OnInit {
       return tasks;
     })());
 
-    // this.route.params.subscribe(params => {
-    //   const listId = params.listId;
-    //
-    //   this.list$ = this.listService.getList(listId)
-    //     .pipe(tap(list => this.folderName$ = this.folderService.getFolderName(list.folderId)));
-    //   this.list$.subscribe();
-    //   this.tasks$ = this.taskService.getTasks(listId);
-    // });
+    this.route.params.subscribe(params => {
+      const listId = params.listId;
+
+      this.list$ = this.listService.getList(listId)
+        .pipe(tap(list => this.folderName$ = this.folderService.getFolderName(list.folderId)));
+      this.list$.subscribe();
+      this.tasks$ = this.taskService.getTasks(listId);
+    });
   }
 }

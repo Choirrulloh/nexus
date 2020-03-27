@@ -4,5 +4,5 @@ mdc-card {
   flex-direction: column;
   height: 100%; // Should be 400px
   overflow: auto;
-  background-color: hotpink;
+  min-height: 0;
 }
