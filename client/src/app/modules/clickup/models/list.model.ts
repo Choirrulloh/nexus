@@ -12,6 +12,9 @@ export class List {
     list.name = data.name;
     list.taskCount = data.task_count;
 
+    // TODO: Status
+    console.log(data);
+
     return list;
   }
 }
