@@ -9,19 +9,9 @@ import { Folder } from '../../models/folder.model';
   providedIn: 'root'
 })
 export class FolderService {
-  headers = new HttpHeaders({ // TODO: Move somewhere higher
-    authorization: environment.clickupToken,
-  });
-
-  options = {
-    headers: this.headers,
-  };
-
   folders$: Observable<Folder[]>;
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   getFolder(folderId): Observable<Folder> {
     if (this.folders$ == null) {
@@ -33,8 +23,10 @@ export class FolderService {
   }
 
   getFolders(): Observable<Folder[]> {
-    this.folders$ = this.http.get<FoldersResponse>(`/api/v2/space/${environment.clickupSpaceId}/folder`, this.options)
-      .pipe(map(response => response.folders.map(folder => Folder.from(folder))));
+    this.folders$ = this.http.get<FoldersResponse>(`/api/v2/space/${environment.clickup.spaceId}/folder`)
+      .pipe(
+        map(response => response.folders.map(folder => Folder.from(folder)))
+      );
 
     return this.folders$;
   }
