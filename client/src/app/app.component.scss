@@ -16,3 +16,8 @@
     min-height: 0;
   }
 }
+
+// Remove the dotted line around buttons on Firefox
+button::-moz-focus-inner {
+  border: 0;
+}

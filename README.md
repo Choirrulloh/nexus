@@ -2,18 +2,14 @@
 
 My personal Raspberry Pi dashboard.
 
-**Yes I know I should not put styling inline, sorry**
+## client
 
-## Todo
+Runs on the Raspberry Pi
 
-Drawer is always there, but if not needed button is hidden
+## server
 
-Modules can use the bar for extra info/nav
+Runs on the Raspberry Pi
 
-Clickup module has spaces/folders in sidebar, and in breadcrumb
+## remote
 
-- lists > list > tasks > task > timer
-
-you can go from task > timer, or from clickup dashboard to timer, select task on timer screen
-
-when redirect task auto selected
+Runs on a public server
