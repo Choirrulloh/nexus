@@ -33,4 +33,4 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     }
   ]
 })
-export class ClickupModule {}
+export class ClickupModule { }

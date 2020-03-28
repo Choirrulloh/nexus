@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ClickupModule } from './modules/clickup/clickup.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     HttpClientModule,
     CoreModule,
+    ClickupModule
   ],
   providers: [],
   bootstrap: [AppComponent]

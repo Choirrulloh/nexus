@@ -8,10 +8,8 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('interceptor');
-
     const modifiedRequest = request.clone({
-      url: `${environment.clickup.token}${request.url}`,
+      headers: request.headers.append('Authorization', environment.clickup.token),
     });
 
     return next.handle(modifiedRequest);
