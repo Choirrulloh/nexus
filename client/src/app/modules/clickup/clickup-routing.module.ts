@@ -3,27 +3,33 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClickupComponent } from './pages/clickup/clickup.component';
 import { TimerComponent } from './pages/timer/timer.component';
 import { ListComponent } from './pages/list/list.component';
+import { TaskComponent } from './pages/task/task.component';
 
 
 const routes: Routes = [
   {
-    path: 'lists/:listId',
-    component: ListComponent
-  },
-  {
-    path: 'timer',
-    component: TimerComponent
+    path: '',
+    component: ClickupComponent,
+    children: [
+      {
+        path: 'lists/:listId',
+        component: ListComponent
+      },
+      {
+        path: 'tasks/:taskId',
+        component: TaskComponent
+      },
+      {
+        path: 'timer',
+        component: TimerComponent
+      },
+    ],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild([
-    {
-      path: '',
-      component: ClickupComponent,
-      children: routes,
-    }
-  ])],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ClickupRoutingModule { }
+export class ClickupRoutingModule {
+}

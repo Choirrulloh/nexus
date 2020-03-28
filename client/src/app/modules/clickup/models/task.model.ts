@@ -1,11 +1,25 @@
-export class Task {
-  readonly listId: number;
-  readonly id: number;
-  name: string;
+import { Status } from './status.model';
 
-  constructor(listId: number, id: number, name: string) {
-    this.listId = listId;
-    this.id = id;
-    this.name = name;
+export class Task {
+  listId: number;
+  id: number;
+  name: string;
+  description: string;
+  status: Status;
+  order: number;
+
+  constructor(init: object = {}) {
+    Object.assign(this, init);
+  }
+
+  static from(data: any): Task {
+    return new Task({
+      listId: data.list.id,
+      id: data.id,
+      name: data.name,
+      description: data.description,
+      status: Status.from(data.status),
+      order: data.orderindex
+    });
   }
 }

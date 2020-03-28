@@ -11,7 +11,7 @@
         </summary>
         <!-- Lists -->
         <mdc-list class="nested-list__section-content">
-          <mdc-list-item *ngFor="let list of folder.lists$ | async" [routerLink]="['/clickup/lists', list.id]" routerLinkActive="mdc-list-item--activated">
+          <mdc-list-item *ngFor="let list of folder.lists$ | async" [routerLink]="['/clickup/lists', list.id]" (click)="onListClicked()" routerLinkActive="mdc-list-item--activated">
             <mdc-icon mdcListItemGraphic>list</mdc-icon>
             {{ list.name }}
           </mdc-list-item>

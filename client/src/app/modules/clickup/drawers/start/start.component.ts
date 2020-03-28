@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Folder } from '../../models/folder.model';
 import { ListService } from '../../services/list/list.service';
 import { map } from 'rxjs/operators';
+import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
 
 @Component({
   selector: 'app-start',
@@ -18,7 +19,8 @@ export class StartComponent implements OnInit, AfterViewInit {
   constructor(
     private folderService: FolderService,
     private listService: ListService,
-    private viewContainerRef: ViewContainerRef
+    private viewContainerRef: ViewContainerRef,
+    private drawerStartManager: DrawerStartManager,
   ) {
 
   }
@@ -36,5 +38,9 @@ export class StartComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.viewContainerRef.createEmbeddedView(this.template); // TODO: How the hell does this work?
+  }
+
+  onListClicked() {
+    this.drawerStartManager.toggle();
   }
 }

@@ -7,9 +7,16 @@ import { MaterialModule } from '../material.module';
 import { StartComponent } from './drawers/start/start.component';
 import { ListComponent } from './pages/list/list.component';
 import { RouterModule } from '@angular/router';
+import { TaskComponent } from './pages/task/task.component';
 
 @NgModule({
-  declarations: [ClickupComponent, TimerComponent, StartComponent, ListComponent],
+  declarations: [
+    ClickupComponent,
+    TimerComponent,
+    StartComponent,
+    ListComponent,
+    TaskComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,

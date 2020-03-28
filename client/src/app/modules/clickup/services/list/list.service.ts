@@ -9,7 +9,7 @@ import { List } from '../../models/list.model';
   providedIn: 'root'
 })
 export class ListService {
-  headers = new HttpHeaders({ // TODO: Move somewhere higher
+  headers = new HttpHeaders({ // TODO: Move somewhere higher INTERCEPTOR
     authorization: environment.clickupToken,
   });
 
@@ -17,18 +17,20 @@ export class ListService {
     headers: this.headers,
   };
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   getLists(folderId: number): Observable<List[]> {
     return this.http.get<ListsResponse>(`/api/v2/folder/${folderId}/list`, this.options)
-      .pipe(map(response => response.lists.map(list => List.from(list))));
+      .pipe(
+        map(response => response.lists.map(list => List.from(list)))
+      );
   }
 
   getList(listId: number): Observable<List> {
     return this.http.get<ListResponse>(`/api/v2/list/${listId}`, this.options)
-      .pipe(map(response => List.from(response)));
+      .pipe(
+        map(response => List.from(response))
+      );
   }
 }
 

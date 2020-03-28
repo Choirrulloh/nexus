@@ -23,14 +23,18 @@ export class FolderService {
 
   }
 
-  getFolderName(folderId): Observable<string> {
+  getFolder(folderId): Observable<Folder> {
+    if (this.folders$ == null) {
+      this.folders$ = this.getFolders();
+    }
+
     return this.folders$
-      .pipe(map(folders => folders.find(folder => folder.id === folderId).name));
+      .pipe(map(folders => folders.find(folder => folder.id === folderId)));
   }
 
   getFolders(): Observable<Folder[]> {
     this.folders$ = this.http.get<FoldersResponse>(`/api/v2/space/${environment.clickupSpaceId}/folder`, this.options)
-      .pipe(map(response => response.folders.map(folder => new Folder(folder.id, folder.name))));
+      .pipe(map(response => response.folders.map(folder => Folder.from(folder))));
 
     return this.folders$;
   }

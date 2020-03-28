@@ -6,8 +6,14 @@ export class Folder {
   readonly name: string;
   lists$: Observable<List[]> | null;
 
-  constructor(id: number, name: string) {
-    this.id = id;
-    this.name = name;
+  constructor(init: object = {}) {
+    Object.assign(this, init);
+  }
+
+  static from(data: any): Folder {
+    return new Folder({
+      id: data.id,
+      name: data.name,
+    });
   }
 }

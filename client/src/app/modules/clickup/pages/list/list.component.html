@@ -1,6 +1,6 @@
 <mdc-card-actions class="header">
-  <div *ngIf="list$ | async as list" mdcButton class="header-name">
-    {{ folderName$ | async }} / {{ list.name }}
+  <div *ngIf="list$ | async as list" mdcButton class="header-name" style="border-bottom: 3px solid {{ list.status.color }}">
+    {{ (list.folder$ | async)?.name }} / {{ list.name }}
   </div>
   <mdc-card-action-icons>
     <button mdcIconButton mdcCardAction="icon">
@@ -15,7 +15,7 @@
 <div class="divider"></div>
 
 <mdc-list class="tasks">
-  <mdc-list-item *ngFor="let task of tasks$ | async" [routerLink]="['/clickup/task']">
+  <mdc-list-item *ngFor="let task of tasks$ | async" [routerLink]="['/clickup/tasks', task.id]" class="task-item">
     {{ task.name }}
   </mdc-list-item>
 </mdc-list>
