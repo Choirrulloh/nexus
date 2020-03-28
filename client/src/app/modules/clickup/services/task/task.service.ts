@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Task } from '../../models/task.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TaskService {
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) {
+  }
 
   getTasks(listId: number): Observable<Task[]> {
     return this.http.get<TasksResponse>(`/api/v2/list/${listId}/task`)

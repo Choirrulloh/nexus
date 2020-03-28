@@ -4,11 +4,12 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { List } from '../../models/list.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ListService {
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) {
+  }
 
   getLists(folderId: number): Observable<List[]> {
     return this.http.get<ListsResponse>(`/api/v2/folder/${folderId}/list`)

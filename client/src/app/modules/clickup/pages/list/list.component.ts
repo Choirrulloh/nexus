@@ -22,7 +22,8 @@ export class ListComponent implements OnInit {
     private folderService: FolderService,
     private listService: ListService,
     private taskService: TaskService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

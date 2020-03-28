@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
 import { map } from 'rxjs/operators';
 import { Folder } from '../../models/folder.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FolderService {
   folders$: Observable<Folder[]>;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) {
+  }
 
   getFolder(folderId): Observable<Folder> {
     if (this.folders$ == null) {

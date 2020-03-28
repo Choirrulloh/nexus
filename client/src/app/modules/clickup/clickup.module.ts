@@ -6,9 +6,11 @@ import { ClickupRoutingModule } from './clickup-routing.module';
 import { MaterialModule } from '../material.module';
 import { StartComponent } from './drawers/start/start.component';
 import { ListComponent } from './pages/list/list.component';
-import { RouterModule } from '@angular/router';
 import { TaskComponent } from './pages/task/task.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ListService } from './services/list/list.service';
+import { FolderService } from './services/folder/folder.service';
+import { TaskService } from './services/task/task.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
@@ -21,11 +23,14 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
   ],
   imports: [
     CommonModule,
-    RouterModule,
     ClickupRoutingModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [
+    FolderService,
+    ListService,
+    TaskService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

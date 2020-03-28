@@ -5,6 +5,7 @@ import { Folder } from '../../models/folder.model';
 import { ListService } from '../../services/list/list.service';
 import { map } from 'rxjs/operators';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-start',
@@ -22,7 +23,6 @@ export class StartComponent implements OnInit, AfterViewInit {
     private viewContainerRef: ViewContainerRef,
     private drawerStartManager: DrawerStartManager,
   ) {
-
   }
 
   ngOnInit() {

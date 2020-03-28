@@ -9,7 +9,10 @@ import { ClockComponent } from './clock/clock.component';
   exports: [
     ClockComponent
   ],
-  declarations: [AppPickerComponent, ClockComponent],
+  declarations: [
+    AppPickerComponent,
+    ClockComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,

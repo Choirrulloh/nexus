@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import { DrawerManager } from '../../../../core/drawers/drawer-manager';
 import { StartComponent } from '../../drawers/start/start.component';
 import { AppManagerService } from '../../../../core/services/app-manager.service';
@@ -11,10 +11,13 @@ import { AppManagerService } from '../../../../core/services/app-manager.service
 export class ClickupComponent {
   constructor(
     private appManager: AppManagerService,
-    private drawerManager: DrawerManager
+    private drawerManager: DrawerManager,
+    private componentFactoryResolver: ComponentFactoryResolver
   ) {
+    const factory = this.componentFactoryResolver.resolveComponentFactory(StartComponent);
+
     appManager.title = 'ClickUp';
-    drawerManager.start.loadComponent(StartComponent);
+    this.drawerManager.start.loadComponent(factory);
     drawerManager.end.available = false;
   }
 }
