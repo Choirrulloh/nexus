@@ -48,4 +48,4 @@ Thumbs.db
 # Environment files
 .env.ts
 src/environments/*
-!/src/environments/README.md
+!/src/environments/environment.example.ts
