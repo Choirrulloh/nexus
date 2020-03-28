@@ -5,7 +5,6 @@ import { Folder } from '../../models/folder.model';
 import { ListService } from '../../services/list/list.service';
 import { map } from 'rxjs/operators';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-start',
@@ -37,7 +36,7 @@ export class StartComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.viewContainerRef.createEmbeddedView(this.template); // TODO: How the hell does this work?
+    this.viewContainerRef.createEmbeddedView(this.template);
   }
 
   onListClicked() {
