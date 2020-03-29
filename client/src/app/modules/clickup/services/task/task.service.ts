@@ -12,13 +12,17 @@ export class TaskService {
   }
 
   getTasks(listId: number): Observable<Task[]> {
-    return this.http.get<TasksResponse>(`/api/v2/list/${listId}/task`)
-      .pipe(map(response => response.tasks.map(task => Task.from(task))));
+    return this.http.get<TasksResponse>(`/api/v2/list/${listId}/task?include_closed=true`)
+      .pipe(
+        map(response => response.tasks.map(task => Task.from(task))),
+      );
   }
 
   getTask(taskId: number): Observable<Task> {
     return this.http.get<TaskResponse>(`/api/v2/task/${taskId}`)
-      .pipe(map(response => Task.from(response)));
+      .pipe(
+        map(response => Task.from(response))
+      );
   }
 }
 

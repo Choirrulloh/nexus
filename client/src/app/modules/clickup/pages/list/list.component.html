@@ -16,8 +16,17 @@
 
 <mdc-list class="tasks">
   <ng-container *ngFor="let task of tasks$ | async">
-    <mdc-list-item [routerLink]="['/clickup/tasks', task.id]" class="tasks-item">
-      {{ task.name }}
+    <mdc-list-item class="tasks-item">
+      <div class="item-content">{{ task.name }}</div>
+      <div class="item-time-spent">{{ task.timeSpentAsReadableString() }}</div>
     </mdc-list-item>
+    <mdc-list-divider padded class="tasks-divider"></mdc-list-divider>
+<!--    <mdc-list-item [routerLink]="['/clickup/tasks', task.id]" class="tasks-item">-->
+<!--      <div class="item-text">-->
+<!--        {{ task.name }}-->
+<!--      </div>-->
+<!--      <div class="item-time">{{ task.timeSpentAsReadableString() }}</div>-->
+<!--    </mdc-list-item>-->
+<!--    <mdc-list-divider padded="padded"></mdc-list-divider>-->
   </ng-container>
 </mdc-list>
