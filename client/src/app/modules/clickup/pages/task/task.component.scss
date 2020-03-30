@@ -1,0 +1,18 @@
+$color-divider-light-grey: rgba(0,0,0,.12);
+
+:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.header {
+  .start {
+    justify-content: flex-start;
+  }
+}
+
+.divider {
+  border-bottom: 1px solid $color-divider-light-grey;
+}

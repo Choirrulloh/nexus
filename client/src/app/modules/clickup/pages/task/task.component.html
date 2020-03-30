@@ -1,13 +1,24 @@
-<mdc-card-actions class="header">
-  <mdc-card-action-icons>
-    <button mdcIconButton mdcCardAction="icon">
-      <mdc-icon>filter_list</mdc-icon>
-    </button>
-    <button mdcIconButton mdcCardAction="icon">
-      <mdc-icon>add_circle_outline</mdc-icon>
-    </button>
-  </mdc-card-action-icons>
-</mdc-card-actions>
+<ng-container *ngIf="task">
+  <mdc-card-actions class="header">
+    <mdc-card-action-icons class="start">
+      <button mdcIconButton mdcCardAction="icon" [routerLink]="['/clickup/lists', task.listId]">
+        <mdc-icon>arrow_back</mdc-icon>
+      </button>
+    </mdc-card-action-icons>
+    <mdc-card-action-icons>
+      <button mdcIconButton mdcCardAction="icon">
+        <mdc-icon>filter_list</mdc-icon>
+      </button>
+      <button mdcIconButton mdcCardAction="icon">
+        <mdc-icon>add_circle_outline</mdc-icon>
+      </button>
+    </mdc-card-action-icons>
+  </mdc-card-actions>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
+  <div>
+    {{ task | json }}
+  </div>
+
+</ng-container>
