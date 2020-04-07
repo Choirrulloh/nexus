@@ -1,0 +1,35 @@
+.display-flex {
+  display: flex;
+}
+
+.flex-row {
+  @extend .display-flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  @extend .display-flex;
+  flex-direction: column;
+}
+
+.flex {
+  @extend .display-flex;
+  flex: 1;
+}
+
+.flex-center {
+  @extend .flex;
+  justify-content: center;
+}
+
+.flex-form {
+  width: 100%;
+
+  mdc-form-field {
+    width: 100%;
+
+    mdc-text-field {
+      width: 100%;
+    }
+  }
+}

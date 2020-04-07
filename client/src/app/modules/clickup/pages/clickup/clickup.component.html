@@ -1,3 +1,10 @@
 <mdc-card class="app-card">
-  <router-outlet></router-outlet>
+  <div #content class="alert" mdcButton>
+    Nothing here (yet), select a list from the sidebar
+  </div>
+
+  <router-outlet
+    (activate)="content.classList.add('invisible')"
+    (deactivate)="content.classList.remove('invisible')">
+  </router-outlet>
 </mdc-card>
