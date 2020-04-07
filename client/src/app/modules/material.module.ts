@@ -14,7 +14,8 @@ import {
   MdcSelectModule,
   MdcSnackbarModule,
   MdcTopAppBarModule,
-  MdcTypographyModule
+  MdcTypographyModule,
+  MdcCheckboxModule,
 } from '@angular-mdc/web';
 
 @NgModule({
@@ -33,7 +34,8 @@ import {
     MdcRippleModule,
     MdcElevationModule,
     MdcTypographyModule,
-    MdcCardModule
-  ]
+    MdcCardModule,
+    MdcCheckboxModule,
+  ],
 })
 export class MaterialModule {}

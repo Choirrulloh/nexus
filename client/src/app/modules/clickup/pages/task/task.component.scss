@@ -1,4 +1,4 @@
-$color-divider-light-grey: rgba(0,0,0,.12);
+$color-divider-light-grey: rgba(0, 0, 0, 0.12);
 
 :host {
   flex: 1;
@@ -15,4 +15,52 @@ $color-divider-light-grey: rgba(0,0,0,.12);
 
 .divider {
   border-bottom: 1px solid $color-divider-light-grey;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+
+  .left {
+    flex: 1;
+  }
+
+  .vertical-divider {
+    background-color: $color-divider-light-grey;
+    width: 1px;
+  }
+
+  .right {
+    width: 192px;
+  }
+}
+
+.subtasks {
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+  padding: 0;
+  min-height: 0;
+
+  .subtasks-item {
+    display: flex;
+    height: auto;
+    min-height: 32px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    .item-content {
+      flex: 1;
+    }
+
+    .item-time-spent {
+      font-size: 0.75rem;
+      text-align: center;
+      width: 60px;
+    }
+  }
+
+  .subtasks-divider {
+    display: flex;
+  }
 }

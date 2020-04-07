@@ -1,8 +1,13 @@
-import { ComponentFactory, ComponentFactoryResolver, Injectable, ViewContainerRef } from '@angular/core';
+import {
+  ComponentFactory,
+  ComponentFactoryResolver,
+  Injectable,
+  ViewContainerRef,
+} from '@angular/core';
 import { MdcDrawer } from '@angular-mdc/web';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export abstract class BaseDrawerManager {
   // The Material Components drawer instance
@@ -13,7 +18,7 @@ export abstract class BaseDrawerManager {
 
   container: ViewContainerRef | null;
 
-  constructor() { }
+  constructor() {}
 
   toggle() {
     this.drawer.open = !this.drawer.open;
@@ -23,10 +28,7 @@ export abstract class BaseDrawerManager {
     this.available = false;
     this.container.clear();
 
-    this.container
-      .createComponent(factory)
-      .changeDetectorRef
-      .detectChanges();
+    this.container.createComponent(factory).changeDetectorRef.detectChanges();
 
     this.available = true;
   }

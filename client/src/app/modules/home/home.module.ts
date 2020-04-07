@@ -4,16 +4,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { MaterialModule } from '../material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CoreModule } from '../../core/core.module';
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     MaterialModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+    CoreModule,
+  ],
 })
-export class HomeModule { }
+export class HomeModule {}

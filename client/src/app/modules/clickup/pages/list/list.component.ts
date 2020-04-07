@@ -11,7 +11,7 @@ import { tap } from 'rxjs/operators';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
   list$: Observable<List>;
@@ -22,16 +22,19 @@ export class ListComponent implements OnInit {
     private folderService: FolderService,
     private listService: ListService,
     private taskService: TaskService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const listId = params.listId;
 
-      this.list$ = this.listService.getList(listId)
+      this.list$ = this.listService
+        .getList(listId)
         .pipe(
-          tap(list => list.folder$ = this.folderService.getFolder(list.folderId))
+          tap(
+            (list) =>
+              (list.folder$ = this.folderService.getFolder(list.folderId))
+          )
         );
       this.tasks$ = this.taskService.getTasks(listId);
     });

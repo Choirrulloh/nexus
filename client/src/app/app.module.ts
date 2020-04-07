@@ -7,16 +7,9 @@ import { MaterialModule } from './modules/material.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MaterialModule,
-    CoreModule,
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, MaterialModule, CoreModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

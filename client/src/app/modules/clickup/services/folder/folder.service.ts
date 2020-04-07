@@ -9,24 +9,25 @@ import { Folder } from '../../models/folder.model';
 export class FolderService {
   folders$: Observable<Folder[]>;
 
-  constructor(
-    private http: HttpClient
-  ) {
-  }
+  constructor(private http: HttpClient) {}
 
   getFolder(folderId): Observable<Folder> {
     if (this.folders$ == null) {
       this.folders$ = this.getFolders();
     }
 
-    return this.folders$
-      .pipe(map(folders => folders.find(folder => folder.id === folderId)));
+    return this.folders$.pipe(
+      map((folders) => folders.find((folder) => folder.id === folderId))
+    );
   }
 
   getFolders(): Observable<Folder[]> {
-    this.folders$ = this.http.get<FoldersResponse>(`/api/v2/space/${environment.clickup.spaceId}/folder`)
+    this.folders$ = this.http
+      .get<FoldersResponse>(
+        `/api/v2/space/${environment.clickup.spaceId}/folder`
+      )
       .pipe(
-        map(response => response.folders.map(folder => Folder.from(folder)))
+        map((response) => response.folders.map((folder) => Folder.from(folder)))
       );
 
     return this.folders$;

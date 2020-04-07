@@ -6,5 +6,5 @@ export const environment = {
   },
   github: {
     token: 'GITHUB_PERSONAL_TOKEN',
-  }
+  },
 };

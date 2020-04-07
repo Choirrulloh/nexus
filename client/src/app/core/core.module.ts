@@ -6,17 +6,8 @@ import { RouterModule } from '@angular/router';
 import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
-  exports: [
-    ClockComponent
-  ],
-  declarations: [
-    AppPickerComponent,
-    ClockComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MaterialModule
-  ]
+  exports: [ClockComponent],
+  declarations: [AppPickerComponent, ClockComponent],
+  imports: [CommonModule, RouterModule, MaterialModule],
 })
 export class CoreModule {}

@@ -12,6 +12,8 @@ import { ListService } from './services/list/list.service';
 import { FolderService } from './services/folder/folder.service';
 import { TaskService } from './services/task/task.service';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { TaskStatusIndicatorComponent } from './components/task-status-indicator/task-status-indicator.component';
+import { CoreModule } from '../../core/core.module';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     TimerComponent,
     StartComponent,
     ListComponent,
-    TaskComponent
+    TaskComponent,
+    TaskStatusIndicatorComponent,
   ],
   imports: [
     CommonModule,
     ClickupRoutingModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
   ],
   providers: [
     FolderService,
@@ -35,7 +39,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
-    }
-  ]
+    },
+  ],
 })
-export class ClickupModule { }
+export class ClickupModule {}

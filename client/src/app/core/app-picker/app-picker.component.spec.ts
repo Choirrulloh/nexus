@@ -8,9 +8,8 @@ describe('AppPickerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppPickerComponent ]
-    })
-    .compileComponents();
+      declarations: [AppPickerComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -5,15 +5,15 @@ import { Location } from '@angular/common';
 
 @Component({
   templateUrl: './app-picker.component.html',
-  styleUrls: ['./app-picker.component.scss']
+  styleUrls: ['./app-picker.component.scss'],
 })
 export class AppPickerComponent {
   apps = [
     // Row 1
     new App('Home', '/'),
     new App('ClickUp', '/clickup'),
-    // new App('Spotify', '/spotify'),
-    // new App('Spotify', '/spotify'),
+    new App('Spotify', '/spotify'),
+    new App('GitHub', '/github'),
     // Row 2
     // new App('App', '/'),
     // new App('App', '/'),
@@ -30,11 +30,10 @@ export class AppPickerComponent {
     public dialogRef: MdcDialogRef<AppPickerComponent>,
     private router: Router,
     public location: Location
-  ) { }
+  ) {}
 
   openApp(link: string) {
-    this.router.navigate([link])
-      .finally(() => this.dialogRef.close());
+    this.router.navigate([link]).finally(() => this.dialogRef.close());
   }
 
   closeDialog() {
@@ -42,7 +41,8 @@ export class AppPickerComponent {
   }
 
   isAppActive(location: Location, link: string): boolean {
-    const path = location.path() === '' ? '/' : `/${location.path().split('/')[1]}`;
+    const path =
+      location.path() === '' ? '/' : `/${location.path().split('/')[1]}`;
 
     return path === link;
   }

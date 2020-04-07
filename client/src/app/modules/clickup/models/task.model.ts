@@ -1,15 +1,16 @@
 import { Status } from './status.model';
 
 export class Task {
-  listId: number;
-  id: number;
+  listId: string | null;
+  parentId: string | null;
+  id: string | null;
   name: string;
   description: string;
   status: Status;
   order: number;
   time: {
-    estimated: string | null,
-    spent: string | null,
+    estimated: string | null;
+    spent: string | null;
   };
 
   // region static methods
@@ -17,6 +18,7 @@ export class Task {
   static from(data: any): Task {
     return new Task({
       listId: data.list.id,
+      parentId: data.parent,
       id: data.id,
       name: data.name,
       description: data.description,
@@ -24,17 +26,19 @@ export class Task {
       order: data.orderindex,
       time: {
         estimated: data.time_estimate,
-        spent: data.time_spent
-      }
+        spent: data.time_spent,
+      },
     });
   }
 
   private static timeAsReadableString(time: string | null): string {
-    if (time == null) { return '-'; }
+    if (time == null) {
+      return '-';
+    }
 
     const milliseconds = parseInt(time, 10);
-    const minutes = Math.floor((milliseconds / (1000 * 60) % 60));
-    const hours = Math.floor((milliseconds / (1000 * 60 * 60) % 24));
+    const minutes = Math.floor((milliseconds / (1000 * 60)) % 60);
+    const hours = Math.floor((milliseconds / (1000 * 60 * 60)) % 24);
 
     return `${hours}h${minutes}m`;
   }

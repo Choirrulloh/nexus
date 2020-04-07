@@ -1,24 +1,43 @@
 <ng-container *ngIf="task">
   <mdc-card-actions class="header">
     <mdc-card-action-icons class="start">
-      <button mdcIconButton mdcCardAction="icon" [routerLink]="['/clickup/lists', task.listId]">
+      <button mdcIconButton mdcCardAction="icon" [routerLink]="navigateBackLink">
         <mdc-icon>arrow_back</mdc-icon>
       </button>
     </mdc-card-action-icons>
     <mdc-card-action-icons>
-      <button mdcIconButton mdcCardAction="icon">
-        <mdc-icon>filter_list</mdc-icon>
-      </button>
-      <button mdcIconButton mdcCardAction="icon">
-        <mdc-icon>add_circle_outline</mdc-icon>
-      </button>
+      <!-- TODO: -->
     </mdc-card-action-icons>
   </mdc-card-actions>
 
   <div class="divider"></div>
 
-  <div>
-    {{ task | json }}
+  <div class="wrapper">
+    <div class="left">
+      <div class="content padding-16">
+        {{ task.name }}
+      </div>
+      <div class="subtasks" *ngIf="subtasks">
+        <div mdcButton class="padding-left-16">Subtasks</div>
+        <ng-container *ngFor="let subtask of subtasks">
+          <mdc-list-item class="subtasks-item" [routerLink]="['/clickup/tasks', subtask.id]">
+            <app-task-status-indicator></app-task-status-indicator>
+            <div class="item-content">{{ subtask.name }}</div>
+            <div class="item-time-spent">{{ subtask.timeSpentAsReadableString() }}</div>
+          </mdc-list-item>
+        </ng-container>
+      </div>
+    </div>
+    <div class="vertical-divider"></div>
+    <div class="right padding-16">
+      <div class="timer">
+        <div class="display">
+          00:00:00
+        </div>
+        <div class="controls">
+          start/stop
+        </div>
+      </div>
+    </div>
   </div>
-
 </ng-container>

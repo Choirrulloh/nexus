@@ -21,6 +21,7 @@
 @use '~@material/dialog/mdc-dialog';
 @use '~@material/fab/mdc-fab';
 @use '~@material/elevation/mdc-elevation';
+@use '~@material/checkbox/mdc-checkbox';
 
 // Weird fix for mdc icon buttons not centering vertically
 .mdc-icon-button {

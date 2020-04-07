@@ -6,7 +6,7 @@ import { AppManagerService } from '../../../../core/services/app-manager.service
 @Component({
   selector: 'app-clickup',
   templateUrl: './clickup.component.html',
-  styleUrls: ['./clickup.component.scss']
+  styleUrls: ['./clickup.component.scss'],
 })
 export class ClickupComponent {
   constructor(
@@ -14,7 +14,9 @@ export class ClickupComponent {
     private drawerManager: DrawerManager,
     private componentFactoryResolver: ComponentFactoryResolver
   ) {
-    const factory = this.componentFactoryResolver.resolveComponentFactory(StartComponent);
+    const factory = this.componentFactoryResolver.resolveComponentFactory(
+      StartComponent
+    );
 
     appManager.title = 'ClickUp';
     this.drawerManager.start.loadComponent(factory);

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { BaseDrawerManager } from './base-drawer-manager';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class DrawerStartManager extends BaseDrawerManager {
-
-}
+export class DrawerStartManager extends BaseDrawerManager {}

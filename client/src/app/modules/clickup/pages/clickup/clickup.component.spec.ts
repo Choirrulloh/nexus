@@ -8,9 +8,8 @@ describe('ClickupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClickupComponent ]
-    })
-    .compileComponents();
+      declarations: [ClickupComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,0 +1,28 @@
+.square-background-wrapper {
+  display: inline-flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 2px solid red;
+  border-radius: 2px;
+  background-color: transparent;
+  pointer-events: none;
+
+  .square-background {
+    display: inline-flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    background-color: red;
+    pointer-events: none;
+    padding: 4px;
+  }
+}

@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { DrawerManager } from './core/drawers/drawer-manager';
 import { MdcDialog, MdcDrawer } from '@angular-mdc/web';
 import { AppPickerComponent } from './core/app-picker/app-picker.component';
@@ -7,20 +12,22 @@ import { AppManagerService } from './core/services/app-manager.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('drawerStart') drawerStart: MdcDrawer;
-  @ViewChild('drawerStartContainer', { read: ViewContainerRef }) drawerStartContainer: ViewContainerRef;
+  @ViewChild('drawerStartContainer', { read: ViewContainerRef })
+  drawerStartContainer: ViewContainerRef;
 
   @ViewChild('drawerEnd') drawerEnd: MdcDrawer;
-  @ViewChild('drawerEndContainer', { read: ViewContainerRef }) drawerEndContainer: ViewContainerRef;
+  @ViewChild('drawerEndContainer', { read: ViewContainerRef })
+  drawerEndContainer: ViewContainerRef;
 
   constructor(
     public appManager: AppManagerService,
     public drawerManager: DrawerManager,
     private dialog: MdcDialog
-  ) { }
+  ) {}
 
   ngAfterViewInit(): void {
     this.drawerManager.start.drawer = this.drawerStart;
