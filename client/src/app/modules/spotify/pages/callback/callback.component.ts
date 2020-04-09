@@ -17,7 +17,7 @@ export class CallbackComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((queryParams) => {
       this.clientService
-        .verifyCode(queryParams.code)
+        .getAccessToken(queryParams.code)
         .subscribe(() => this.router.navigate(['/spotify']));
     });
   }

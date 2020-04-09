@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ClientService } from '../client/client.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class PlaybackService {
-  constructor(private clientService: ClientService) {}
+  constructor(private http: HttpClient) {
+
+  }
+
+  getCurrentlyPlayingContext(): Observable<any> {
+    return this.http.get('/me/player');
+  }
 }
