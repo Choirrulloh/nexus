@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaybackService } from '../../services/playback/playback.service';
+import { ClientService } from '../../services/client/client.service';
 
 @Component({
   selector: 'app-spotify',
@@ -7,9 +8,11 @@ import { PlaybackService } from '../../services/playback/playback.service';
   styleUrls: ['./spotify.component.scss'],
 })
 export class SpotifyComponent implements OnInit {
-  constructor(private playbackService: PlaybackService) {}
-
-  ngOnInit(): void {
-    console.log(this.playbackService.getCurrentlyPlaying());
+  constructor(private clientService: ClientService) {
+    if (!clientService.token) {
+      clientService.getCode();
+    }
   }
+
+  ngOnInit(): void {}
 }

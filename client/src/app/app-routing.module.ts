@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, Route } from '@angular/router';
-import { HomeModule } from './modules/home/home.module';
-import { ClickupModule } from './modules/clickup/clickup.module';
-import { SpotifyModule } from './modules/spotify/spotify.module';
-import { GithubModule } from './modules/github/github.module';
-
-const route = (
-  module: any,
-  path: string = module.name.replace('Module', '').toLowerCase()
-): Route => ({ path, loadChildren: () => module });
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  route(HomeModule, ''),
-  route(ClickupModule),
-  route(SpotifyModule),
-  route(GithubModule),
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((module) => module.HomeModule),
+  },
+  {
+    path: 'clickup',
+    loadChildren: () =>
+      import('./modules/clickup/clickup.module').then(
+        (module) => module.ClickupModule
+      ),
+  },
+  {
+    path: 'spotify',
+    loadChildren: () =>
+      import('./modules/spotify/spotify.module').then(
+        (module) => module.SpotifyModule
+      ),
+  },
 ];
 
 @NgModule({
