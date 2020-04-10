@@ -11,13 +11,14 @@ import { Folder } from '../../models/folder.model';
 import { ListService } from '../../services/list/list.service';
 import { map } from 'rxjs/operators';
 import { DrawerStartManager } from '../../../../core/drawers/drawer-start-manager';
+import { IDrawer } from '../../../../core/drawers/drawer.interface';
 
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
 })
-export class StartComponent implements OnInit, AfterViewInit {
+export class StartComponent implements OnInit, AfterViewInit, IDrawer {
   @ViewChild('template') template;
 
   folders$: Observable<Folder[]>;
@@ -38,6 +39,9 @@ export class StartComponent implements OnInit, AfterViewInit {
         }))
       )
     );
+  }
+
+  onToggle(newStateOpen: boolean) {
   }
 
   ngAfterViewInit() {
