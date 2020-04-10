@@ -15,7 +15,9 @@ export class EndpointInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const url = request.url.startsWith('http') ? request.url : `https://api.spotify.com/v1${request.url}`;
+    const url = request.url.startsWith('http')
+      ? request.url
+      : `https://api.spotify.com/v1${request.url}`;
 
     const modifiedRequest = request.clone({
       url,

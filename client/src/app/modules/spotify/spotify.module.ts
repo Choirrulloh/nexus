@@ -7,12 +7,17 @@ import { SpotifyRoutingModule } from './spotify-routing.module';
 import { CallbackComponent } from './pages/callback/callback.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ClientService } from './services/client/client.service';
-import { PlaybackService } from './services/playback/playback.service';
+import { PlayerService } from './services/player/player.service';
 import { EndpointInterceptor } from './interceptors/endpoint.interceptor';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { StartComponent } from './drawers/start/start.component';
 
 @NgModule({
-  declarations: [SpotifyComponent, CallbackComponent],
+  declarations: [
+    SpotifyComponent,
+    CallbackComponent,
+    StartComponent,
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -22,7 +27,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
   ],
   providers: [
     ClientService,
-    PlaybackService,
+    PlayerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: EndpointInterceptor,

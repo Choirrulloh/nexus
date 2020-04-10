@@ -55,10 +55,14 @@ export class TokenInterceptor implements HttpInterceptor {
     );
   }
 
-  private addAuthenticationToken(request) {
+  private addAuthenticationToken(request: HttpRequest<any>) {
     const token = this.clientService.accessToken;
 
     if (!token) {
+      return request;
+    }
+
+    if (request.headers.has('Authorization')) {
       return request;
     }
 

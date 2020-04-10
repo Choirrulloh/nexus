@@ -69,8 +69,6 @@ export class ClientService {
     const url = 'https://accounts.spotify.com/api/token';
 
     const body = new HttpParams()
-      .set('client_id', environment.spotify.clientId)
-      .set('client_secret', environment.spotify.secretId)
       .set('grant_type', 'refresh_token')
       .set('refresh_token', this.refreshToken);
 
@@ -78,6 +76,7 @@ export class ClientService {
       .post(url, body.toString(), {
         headers: new HttpHeaders({
           'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: `Basic ${btoa(`${environment.spotify.clientId}:${environment.spotify.secretId}`)}`
         }),
       })
       .pipe(

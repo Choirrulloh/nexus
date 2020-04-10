@@ -11,7 +11,7 @@ import { AppManagerService } from '../../../../core/services/app-manager.service
 export class ClickupComponent {
   constructor(
     private appManager: AppManagerService,
-    private drawerManager: DrawerManager,
+    public drawerManager: DrawerManager,
     private componentFactoryResolver: ComponentFactoryResolver
   ) {
     const factory = this.componentFactoryResolver.resolveComponentFactory(
@@ -20,6 +20,7 @@ export class ClickupComponent {
 
     appManager.title = 'ClickUp';
     this.drawerManager.start.loadComponent(factory);
+    this.drawerManager.start.icon = 'menu';
     drawerManager.end.available = false;
   }
 }

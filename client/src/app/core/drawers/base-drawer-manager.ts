@@ -1,6 +1,5 @@
 import {
   ComponentFactory,
-  ComponentFactoryResolver,
   Injectable,
   ViewContainerRef,
 } from '@angular/core';
@@ -15,6 +14,8 @@ export abstract class BaseDrawerManager {
 
   // If the drawer is not available, the toggle should not be shown
   available = false;
+
+  icon = 'menu';
 
   container: ViewContainerRef | null;
 

@@ -3,7 +3,7 @@
   <mdc-top-app-bar-row>
     <mdc-top-app-bar-section align="start" title="{{ appManager.title }}">
       <button mdcTopAppBarNavIcon *ngIf="drawerManager.start.available" (click)="drawerManager.start.toggle()">
-        <mdc-icon>menu</mdc-icon>
+        <mdc-icon>{{ drawerManager.start.icon }}</mdc-icon>
       </button>
     </mdc-top-app-bar-section>
     <mdc-top-app-bar-section style="justify-content: center">

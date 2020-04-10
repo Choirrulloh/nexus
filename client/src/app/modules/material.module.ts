@@ -15,7 +15,7 @@ import {
   MdcSnackbarModule,
   MdcTopAppBarModule,
   MdcTypographyModule,
-  MdcCheckboxModule,
+  MdcCheckboxModule, MdcRadioModule,
 } from '@angular-mdc/web';
 
 @NgModule({
@@ -36,6 +36,7 @@ import {
     MdcTypographyModule,
     MdcCardModule,
     MdcCheckboxModule,
+    MdcRadioModule
   ],
 })
 export class MaterialModule {}
