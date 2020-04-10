@@ -36,6 +36,6 @@ export class SpotifyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.playerService.getCurrentlyPlayingContext().subscribe(result => console.log(result));
+    // this.playerService.getCurrentlyPlayingContext().subscribe(result => console.log(result));
   }
 }

@@ -1,9 +1,10 @@
 import {
-  ComponentFactory,
+  ComponentFactory, ComponentRef,
   Injectable,
   ViewContainerRef,
 } from '@angular/core';
 import { MdcDrawer } from '@angular-mdc/web';
+import { IDrawer } from './drawer.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,7 @@ export abstract class BaseDrawerManager {
   icon = 'menu';
 
   container: ViewContainerRef | null;
+  component: ComponentRef<IDrawer> | null;
 
   constructor() {}
 
@@ -29,8 +31,12 @@ export abstract class BaseDrawerManager {
     this.available = false;
     this.container.clear();
 
-    this.container.createComponent(factory).changeDetectorRef.detectChanges();
+    this.component = this.container.createComponent(factory);
+    this.component.changeDetectorRef.detectChanges();
 
     this.available = true;
+
+    this.drawer.opened.subscribe(() => this.component.instance.onToggle(true));
+    this.drawer.closed.subscribe(() => this.component.instance.onToggle(false));
   }
 }
