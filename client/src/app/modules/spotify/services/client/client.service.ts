@@ -76,7 +76,9 @@ export class ClientService {
       .post(url, body.toString(), {
         headers: new HttpHeaders({
           'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Basic ${btoa(`${environment.spotify.clientId}:${environment.spotify.secretId}`)}`
+          Authorization: `Basic ${btoa(
+            `${environment.spotify.clientId}:${environment.spotify.secretId}`
+          )}`,
         }),
       })
       .pipe(

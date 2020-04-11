@@ -23,6 +23,6 @@ export class StartComponent implements OnInit, IDrawer {
   }
 
   private update() {
-    this.devices$ = this.playerService.getDevices();
+    // this.devices$ = this.playerService.getDevices();
   }
 }

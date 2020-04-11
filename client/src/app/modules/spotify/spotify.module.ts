@@ -13,11 +13,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { StartComponent } from './drawers/start/start.component';
 
 @NgModule({
-  declarations: [
-    SpotifyComponent,
-    CallbackComponent,
-    StartComponent,
-  ],
+  declarations: [SpotifyComponent, CallbackComponent, StartComponent],
   imports: [
     CommonModule,
     MaterialModule,

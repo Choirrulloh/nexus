@@ -1,5 +1,10 @@
-.settings-button {
-  position: absolute;
-  top: 2px;
-  right: 2px;
+.item-info {
+  .thumbnail {
+    max-height: 162px;
+    max-width: 162px;
+  }
+}
+
+.controls {
+  background-color: gold;
 }

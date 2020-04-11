@@ -4,6 +4,7 @@ import { PlayerService } from '../../services/player/player.service';
 import { AppManagerService } from '../../../../core/services/app-manager.service';
 import { DrawerManager } from '../../../../core/drawers/drawer-manager';
 import { StartComponent } from '../../drawers/start/start.component';
+import { Context, IContext } from '../../models/context.model';
 
 @Component({
   selector: 'app-spotify',
@@ -11,7 +12,7 @@ import { StartComponent } from '../../drawers/start/start.component';
   styleUrls: ['./spotify.component.scss'],
 })
 export class SpotifyComponent implements OnInit {
-  context: any | null = null; // TODO: Model
+  context: Context | null = null;
 
   constructor(
     clientService: ClientService,
@@ -30,12 +31,14 @@ export class SpotifyComponent implements OnInit {
     );
 
     appManager.title = 'Spotify';
-    this.drawerManager.start.loadComponent(factory);
+    // this.drawerManager.start.loadComponent(factory);
     drawerManager.start.icon = 'settings';
     drawerManager.end.available = false;
   }
 
   ngOnInit(): void {
-    // this.playerService.getCurrentlyPlayingContext().subscribe(result => console.log(result));
+    this.playerService
+      .getCurrentlyPlayingContext()
+      .subscribe((context) => (this.context = context));
   }
 }

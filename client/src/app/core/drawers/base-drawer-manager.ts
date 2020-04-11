@@ -1,5 +1,6 @@
 import {
-  ComponentFactory, ComponentRef,
+  ComponentFactory,
+  ComponentRef,
   Injectable,
   ViewContainerRef,
 } from '@angular/core';

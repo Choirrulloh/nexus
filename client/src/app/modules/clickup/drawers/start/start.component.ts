@@ -41,8 +41,7 @@ export class StartComponent implements OnInit, AfterViewInit, IDrawer {
     );
   }
 
-  onToggle(newStateOpen: boolean) {
-  }
+  onToggle(newStateOpen: boolean) {}
 
   ngAfterViewInit() {
     this.viewContainerRef.createEmbeddedView(this.template);
