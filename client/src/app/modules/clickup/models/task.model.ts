@@ -1,4 +1,5 @@
 import { Status } from './status.model';
+import { UserTrackedTime } from './user-tracked-time.model';
 
 export class Task {
   listId: string | null;
@@ -11,14 +12,12 @@ export class Task {
   time: {
     estimated: string | null;
     spent: string | null;
+    data: UserTrackedTime[];
   };
 
   // region static methods
 
   static from(data: any): Task {
-    console.log(data);
-    console.log(data.timeTracking);
-
     return new Task({
       listId: data.list.id,
       parentId: data.parent,
@@ -30,6 +29,7 @@ export class Task {
       time: {
         estimated: data.time_estimate,
         spent: data.time_spent,
+        data: Object.values(data.timeTracking?.data || []).map(value => UserTrackedTime.from(value)) || []
       },
     });
   }

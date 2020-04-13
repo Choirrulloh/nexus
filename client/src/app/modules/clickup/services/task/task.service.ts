@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, Observable, of } from 'rxjs';
-import { concatMap, flatMap, map, mergeAll, mergeMap, switchMap, toArray } from 'rxjs/operators';
+import {
+  concatMap,
+  flatMap,
+  map,
+  mergeAll,
+  mergeMap,
+  switchMap, tap,
+  toArray,
+} from 'rxjs/operators';
 import { Task } from '../../models/task.model';
 
 @Injectable()
@@ -15,25 +23,18 @@ export class TaskService {
   }
 
   getTask(taskId: string): Observable<Task> {
-    return this.http
-      .get<TaskResponse>(`/api/v2/task/${taskId}`)
-      .pipe(
-        switchMap(response => {
-          return forkJoin([of(Task.from(response)), this.http.get(`/api/v2/task/${taskId}/time`)])
-        }),
-        map(response => {
-          console.log(response);
-          return new Task();
-        })
-        // mergeMap(() => this.http.get(`/api/v2/task/${taskId}/time`)),
-        // map((a, b) => {
-        //   console.log(a);
-        //   console.log(b);
-        //   // console.log(response);
-        //   // return Task.from(response);
-        //   return new Task();
-        // })
-      );
+    return this.http.get<TaskResponse>(`/api/v2/task/${taskId}`).pipe(
+      switchMap((response) => {
+        return forkJoin([
+          of(response),
+          this.http.get(`/api/v2/task/${taskId}/time`),
+        ]);
+      }),
+      map((response) =>
+        Task.from(Object.assign({}, response[0], { timeTracking: response[1] }))
+      ),
+      tap(task => console.log(task))
+    );
   }
 
   getSubtasks(listId: string, taskId: string): Observable<Task[]> {
