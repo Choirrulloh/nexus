@@ -15,18 +15,19 @@
   <div class="wrapper">
     <div class="left">
       <div class="content padding-16">
-        {{ task.name }}
+        <div mdcOverline>{{ task.name }}</div>
+        <div>{{ task.description }}</div>
       </div>
-      <div class="subtasks" *ngIf="subtasks">
-        <div mdcButton class="padding-left-16">Subtasks</div>
-        <ng-container *ngFor="let subtask of subtasks">
-          <mdc-list-item class="subtasks-item" [routerLink]="['/clickup/tasks', subtask.id]">
-            <app-task-status-indicator></app-task-status-indicator>
-            <div class="item-content">{{ subtask.name }}</div>
-            <div class="item-time-spent">{{ subtask.timeSpentAsReadableString() }}</div>
-          </mdc-list-item>
-        </ng-container>
-      </div>
+<!--      <div class="subtasks" *ngIf="subtasks">-->
+<!--        <div mdcButton class="padding-left-16">Subtasks</div>-->
+<!--        <ng-container *ngFor="let subtask of subtasks">-->
+<!--          <mdc-list-item class="subtasks-item" [routerLink]="['/clickup/tasks', subtask.id]">-->
+<!--            <app-task-status-indicator></app-task-status-indicator>-->
+<!--            <div class="item-content">{{ subtask.name }}</div>-->
+<!--            <div class="item-time-spent">{{ subtask.timeSpentAsReadableString() }}</div>-->
+<!--          </mdc-list-item>-->
+<!--        </ng-container>-->
+<!--      </div>-->
     </div>
     <div class="vertical-divider"></div>
     <div class="right padding-16">

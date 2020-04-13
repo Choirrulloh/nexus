@@ -16,6 +16,9 @@ export class Task {
   // region static methods
 
   static from(data: any): Task {
+    console.log(data);
+    console.log(data.timeTracking);
+
     return new Task({
       listId: data.list.id,
       parentId: data.parent,
